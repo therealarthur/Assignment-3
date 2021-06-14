@@ -4,45 +4,27 @@ let colorSelected;
 
 //Adds a row
 function addR() {
-    var myTable = document.getElementById("grid");
-    var currentIndex = myTable.rows.length;
-    var currentRow = myTable.insertRow(-1);
-
-    var linksBox = document.createElement("input");
-    linksBox.setAttribute("name", "links" + currentIndex);
-
-    var keywordsBox = document.createElement("input");
-    keywordsBox.setAttribute("name", "keywords" + currentIndex);
-
-    var violationsBox = document.createElement("input");
-    violationsBox.setAttribute("name", "violationtype" + currentIndex);
-
-    var addRowBox = document.createElement("input");
-    addRowBox.setAttribute("type", "button");
-    addRowBox.setAttribute("value", "Add another line");
-    addRowBox.setAttribute("onclick", "addField();");
-    addRowBox.setAttribute("class", "button");
-
-    var currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(linksBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(keywordsBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(violationsBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(addRowBox);
+    numRows++;
+    let Table = document.getElementById("grid");
+    let row = Table.insertRow(-1); // Adds new row to end of table
+    
+    for(let i = 0; i <= numCols;i++)
+        row.insertCell(i);
 }
 //Adds a column
 function addC() {
-    alert("Clicked Add Col")
+    numCols++;
+    let Table = document.getElementById("grid");
+    for(let i = 0; i <= numRows; i++)
+        Table.rows[i].insertCell(numCols)
 }
 
 //Removes a row
 function removeR() {
-    alert("Clicked Remove Row")
+    numRows--;
+    let Table = document.getElementById("grid")
+    Table.deleteRow(-1)
+
 }
 //Remove a column
 function removeC() {
