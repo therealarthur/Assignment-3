@@ -7,7 +7,6 @@ function addR() {
     numRows++;
     let Table = document.getElementById("grid");
     let row = Table.insertRow(-1); // Adds new row to end of table
-    
     for(let i = 0; i <= numCols;i++)
         row.insertCell(i);
 }
@@ -15,7 +14,7 @@ function addR() {
 function addC() {
     numCols++;
     let Table = document.getElementById("grid");
-    for(let i = 0; i <= numRows; i++)
+    for(let i = 0; i <= numRows-1; i++)
         Table.rows[i].insertCell(numCols)
 }
 
@@ -28,7 +27,11 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    let Table = document.getElementById("grid")
+    for(let i = 0; i <= numRows-1; i++){
+        Table.rows[i].deleteCell(numCols)
+    }
+    numCols--;
 }
 //sets global var for selected color
 function selected(){
